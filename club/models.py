@@ -1,31 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-#####################################
-#####################################
-
-# Meeting which will have fields for meeting title, meeting date, meeting time, location, Agenda
-
-# Meeting Minutes which will have fields for meeting id (a foreign key), attendance (a many to many field with User), Minutes text
-
-# Resource which will have fields for resource name, resource type, URL, date entered, user id (foreign key with User), and description
-
-# Event which will have fields for event title, location, date, time, description and the user id of the member that posted it
-
-#####################################
-#####################################
-
-# register the models in admin.py
-
-# Create and troubleshoot the models, and then make migrations and migrate
-
-# Create a superuser and open the admin site
-
-# Upload the code to GitHub and post the url in canvas
-
-#####################################
-#####################################
-
 # Create your models here.
 class Meeting(models.Model):
   title = models.CharField(max_length=255)
