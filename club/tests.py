@@ -30,7 +30,7 @@ class MeetingTest(TestCase):
     self.type = meeting
 
   def test_titlestring(self):
-    self.assertEqual(str(self.type.title), 'MVC basics')
+    self.assertEqual(str(self.type), 'MVC basics')
   
   def test_tablename(self):
     self.assertEqual(str(meeting._meta.db_table), 'meeting')
@@ -47,7 +47,7 @@ class ResourceTest(TestCase):
     self.type = resource
   
   def test_type(self):
-    self.assertEqual(str(self.type.type), 'book')
+    self.assertEqual(str(self.type), "O\'Rielly\'s Fluent Python")
   
   def test_namestring(self):
     self.assertIs(type(self.type.name), str)
@@ -59,6 +59,9 @@ class ResourceTest(TestCase):
 class EventTest(TestCase):
   def setUp(self):
     self.type = event
+
+  def test_type(self):
+    self.assertEqual(str(self.type), 'MVC meeting')
 
   def test_tablename(self):
     self.assertEqual(str(event._meta.db_table), 'event')
