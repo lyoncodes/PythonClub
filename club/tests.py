@@ -2,6 +2,8 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from .models import Resource, Meeting, MeetingMinutes, Event
 import datetime
+from .forms import ResourceForm, MeetingForm
+
 # from django.urls import reverse
 meeting = Meeting(
   title = 'MVC basics',
@@ -24,6 +26,25 @@ resource = Resource(
 event = Event(
   title = 'MVC meeting'
 )
+
+resourceFormData = {
+  "name": "Intro to Python",
+  "type": "book",
+  "date": datetime.date(2022,3,2),
+  "URL": "https://www.notion.so/Mar-2022-bc8ad76805b849999b8fc758969fde86",
+  "userId": user,
+  "description": "",
+}
+
+meetingFormData = {
+  "name": "Intro to Python",
+  "type": "book",
+  "date": datetime.date(2022,3,2),
+  "URL": "https://www.notion.so/Mar-2022-bc8ad76805b849999b8fc758969fde86",
+  "userId": user,
+  "description": "",
+}
+
 # Create your tests here.
 class MeetingTest(TestCase):
   def setUp(self):
@@ -65,3 +86,15 @@ class EventTest(TestCase):
 
   def test_tablename(self):
     self.assertEqual(str(event._meta.db_table), 'event')
+
+class NewResourceForm(TestCase):
+  # test for valid form data
+  def test_resourceform(self):
+    form = ResourceForm(resourceFormData)
+    self.assertTrue(form.is_valid)
+
+class NewMeetingForm(TestCase):
+  # test for valid form data
+  def test_meetingform(self):
+    form = MeetingForm(meetingFormData)
+    self.assertTrue(form.is_valid)

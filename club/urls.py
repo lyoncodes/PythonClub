@@ -4,7 +4,9 @@ from . import views
 
 urlpatterns = [
   path('', views.index, name='index'),
-  path('resources', views.resources, name='resources'),
-  path('meetings', views.meetings, name='meetings'),
-  path('meeting/<int:id>', views.meetingDetail, name="meeting")
+  path('resources/', views.resources, name='resources'),
+  path('meetings/', views.meetings, name='meetings'),
+  path('meeting/<int:id>/', views.meetingDetail, name="meeting"),
+  path('newresource/', views.resourceForm, name="resourceform"),
+  path('newmeeting/', views.meetingForm, name="meetingform")
 ]
