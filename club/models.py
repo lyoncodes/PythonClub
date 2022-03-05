@@ -48,7 +48,7 @@ class Event(models.Model):
   description = models.TextField()
   userId = models.ManyToManyField(User)
   
-  def __str__(self):
+  def __str__(self): 
     return self.title
   
   class Meta:

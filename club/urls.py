@@ -8,5 +8,7 @@ urlpatterns = [
   path('meetings/', views.meetings, name='meetings'),
   path('meeting/<int:id>/', views.meetingDetail, name="meeting"),
   path('newresource/', views.resourceForm, name="resourceform"),
-  path('newmeeting/', views.meetingForm, name="meetingform")
+  path('newmeeting/', views.meetingForm, name="meetingform"),
+  path('loginmessage/', views.loginmessage, name="loginmessage"),
+  path('logoutmessage/', views.logoutmessage, name="logoutmessage")
 ]

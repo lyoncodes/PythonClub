@@ -28,12 +28,11 @@ event = Event(
 )
 
 resourceFormData = {
-  "name": "Intro to Python",
-  "type": "book",
+  "title": "Intro to Python",
   "date": datetime.date(2022,3,2),
-  "URL": "https://www.notion.so/Mar-2022-bc8ad76805b849999b8fc758969fde86",
-  "userId": user,
-  "description": "",
+  "time": datetime.date(2022,3,2),
+  "location": "ada's",
+  "agenda": "some agenda",
 }
 
 meetingFormData = {
