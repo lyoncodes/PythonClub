@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from .models import Resource, Meeting, MeetingMinutes, Event
 import datetime
 from .forms import ResourceForm, MeetingForm
+from django.urls import reverse
 
 # from django.urls import reverse
 meeting = Meeting(
@@ -97,3 +98,15 @@ class NewMeetingForm(TestCase):
   def test_meetingform(self):
     form = MeetingForm(meetingFormData)
     self.assertTrue(form.is_valid)
+
+class New_Resource_Authentication_Test(TestCase):
+  def setUp(self):
+    self.test_user = User.objects.create_user(username = 'testuser1', password = 'p@ssw0rd1')
+
+    self.resource = Resource.objects.create(name = "O\'Rielly\'s Fluent Python",
+    type = 'book', date = datetime.date(2022,2,27), URL = '', userId = self.test_user, description = ''
+    )
+  
+  def test_redirect_if_not_logged_in(self):
+    response = self.client.get(reverse('newresource'))
+    self.assertRedirects(response, '/accounts/login/?next=/club/newresource/')

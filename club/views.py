@@ -32,7 +32,7 @@ def resourceForm(request):
       form = ResourceForm()
   else:
     form = ResourceForm()
-  return render(request, 'club/resourceform.html', {'form' : form})
+  return render(request, 'club/newresource.html', {'form' : form})
 
 def meetingForm(request):
   form = MeetingForm
